@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <iframe frameborder=0 width="800" height="600"
+    src="https://analytics.zoho.com/open-view/2893691000000009409"></iframe>
+
+    <script>
+        window.onload = function () {
+
+            function armazenarValorLocalStorage() {
+                // Seleciona todos os spans com a classe "tableData" dentro da div com o id "dTable"
+                var spans = document.querySelectorAll('#dTable .tableData');
+                console.log("spans", spans);
+
+                // Adiciona um evento de clique a cada span encontrado
+                spans.forEach(function (span) {
+                    span.addEventListener('click', function () {
+                        // Obtém o valor do span clicado
+                        var valor = this.textContent;
+
+                        // Armazena o valor no localStorage com uma chave específica
+                        localStorage.setItem('valorClicado', valor);
+
+                        // Exibe uma mensagem para confirmar que o valor foi armazenado
+                        console.log('Valor armazenado no localStorage: ' + valor);
+                    });
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
